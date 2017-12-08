@@ -1,0 +1,14 @@
+#!/bin/env bash
+CMDNAME=`basename $0`
+if [ $# -ne 2 ]; then
+    echo "Usage: $CMDNAME file1 file2"
+    echo "Exchange the name of two files"
+    exit 1
+fi
+echo "Swap filename of $1 , $2"
+TMPFILE="$1.swaptmp"
+mv $1 $TMPFILE
+mv $2 $1
+mv $TMPFILE $2
+echo "Done"
+exit 0
